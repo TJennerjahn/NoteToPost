@@ -1,5 +1,6 @@
 var fs = require("fs");
 var MarkdownIt = require("markdown-it");
+const path = require("path");
 const { exit } = require("process");
 const yargs = require("yargs");
 var md = new MarkdownIt();
@@ -15,6 +16,7 @@ if (!argv.t) {
   exit();
 }
 
+// const re = /\/.*([A-Za-z0-9]+(_[A-Za-z0-9]+)+)\.[a-z]+/g;
 var template = fs.readFileSync("./template.html").toString();
 
 var note = fs.readFileSync(argv.i).toString();
