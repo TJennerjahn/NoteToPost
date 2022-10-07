@@ -1,3 +1,10 @@
+# Ignore any markdown testing files
+*.md
+
+# Ignore all html files, except for the template
+*.html
+!template.html
+
 # Logs
 logs
 *.log
