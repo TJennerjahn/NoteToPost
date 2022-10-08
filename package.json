@@ -15,5 +15,8 @@
 		"markdown-it": "^13.0.1",
 		"markdown-it-highlightjs": "^4.0.1",
 		"yargs": "^17.6.0"
+	},
+	"bin": {
+		"notetopost": "./index.js"
 	}
 }
