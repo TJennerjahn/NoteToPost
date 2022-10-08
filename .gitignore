@@ -3,6 +3,7 @@
 
 # Ignore all html files, except for the template
 *.html
+*.css
 !template.html
 
 # Logs

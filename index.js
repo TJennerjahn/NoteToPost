@@ -1,9 +1,27 @@
 var fs = require("fs");
-var MarkdownIt = require("markdown-it");
-const path = require("path");
+const hljs = require("highlight.js");
+
+// const path = require("path");
 const { exit } = require("process");
 const yargs = require("yargs");
-var md = new MarkdownIt();
+const md = require("markdown-it")().use(require("markdown-it-highlightjs"), {
+  highlight: function (str, lang) {
+    console.log(lang);
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return (
+          '<pre class="hljs"><code>' +
+          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+          "</code></pre>"
+        );
+      } catch (__) {}
+    }
+
+    return (
+      '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + "</code></pre>"
+    );
+  },
+});
 
 const argv = yargs(process.argv.slice(2)).argv;
 
